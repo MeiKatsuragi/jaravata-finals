@@ -21,7 +21,6 @@ if (!isset($_SESSION["email"])) {
         <a href="logout.php">Logout</a>
     </div>
 </nav>
-    <?php include 'menu.php'; ?>
     <div class="container">
         <h1>Welcome to BookRec, <?php echo htmlspecialchars($_SESSION["username"]); ?>!</h1>
         <p>Explore hand-picked book recommendations just for you.</p>
