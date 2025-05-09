@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         $statement->close();
-
         $error = "Username or Password Invalid";
     }
 }
@@ -44,40 +43,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="index.css">
-
-    <title>Log In</title>
+    <title>Login - BookRec</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="title">Stem&Petals Log In</div>
-        <form action="" method="POST">
-            <?php if ($message): ?>
-                <div class="error-message"><?php echo $message; ?></div>
-            <?php endif; ?>
-            <div class="user-details">
-                <div class="input-box">
-                    <span class="details">Email or Username</span>
-                    <input type="text" name="username" placeholder="Enter username" required />
-                </div>
-                <div class="input-box">
-                    <span class="details">Password</span>
-                    <input type="password" name="password" placeholder="Enter password" required />
-                </div>
-            </div>
-
-            <div class="button">
-                <input type="submit" value="Log  In">
-            </div>
-
-            <div class="last">
-                <a href="index.php">Don't have an account?</a>
-            </div>
+    <div class="form-container">
+        <h2>Login to BookRec 📚</h2>
+        <form method="POST" action="">
+            <input type="text" name="username" placeholder="Username" value="<?= htmlspecialchars($username) ?>">
+            <input type="password" name="password" placeholder="Password">
+            <p class="error"><?= $error ?></p>
+            <button type="submit">Login</button>
+            <p class="switch">Don't have an account? <a href="index.php">Register here</a>.</p>
         </form>
     </div>
-    
 </body>
 </html>
